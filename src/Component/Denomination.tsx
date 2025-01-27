@@ -4,9 +4,10 @@ import React, { useState } from 'react'
 
 type Props = {
   denomination?:string[]|undefined
+  title?:string
 }
 
-export default function Denomination({denomination}: Props) {
+export default function Denomination({denomination,title}: Props) {
   
 const [selectedDenomination, setSelectedDenomination] = useState("500")
   const [customDenomination, setCustomDenomination] = useState("")
@@ -24,7 +25,7 @@ const [selectedDenomination, setSelectedDenomination] = useState("500")
     <div className="border-2 bg-white w-[280px] text-zinc-700 sm:w-[310px] md:w-[500px] rounded-[15px] p-4">
       <div>
         <h1 className="text-sm sm:text-2xl font-bold">
-          Example Gift Card <br />
+          {title} <br />
           <span className="text-green-700 font-semibold">20% off</span>
         </h1>
       </div>

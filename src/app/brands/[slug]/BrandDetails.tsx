@@ -56,7 +56,7 @@ console.log(brand)
         >
           Add to Cart
         </button> */}
-        <Denomination denomination={brand?.checkout?.denominations}/>
+        <Denomination denomination={brand?.checkout?.denominations} title={brand.name}/>
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-2">Description</h2>
           <p className="text-gray-700 mb-4">{brand.desc}</p>
