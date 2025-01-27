@@ -8,7 +8,7 @@ interface BrandDetailsProps {
 }
 
 export default function BrandDetails({ brand }: BrandDetailsProps) {
-
+console.log(brand)
   return (
     <div className="flex flex-col md:flex-row gap-8">
       <div className="md:w-1/2">
@@ -56,7 +56,7 @@ export default function BrandDetails({ brand }: BrandDetailsProps) {
         >
           Add to Cart
         </button> */}
-        <Denomination/>
+        <Denomination denomination={brand?.checkout?.denominations}/>
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-2">Description</h2>
           <p className="text-gray-700 mb-4">{brand.desc}</p>

@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react'
 
-type Props = {}
+type Props = {
+  denomination?:string[]|undefined
+}
 
-export default function Denomination({}: Props) {
+export default function Denomination({denomination}: Props) {
   
 const [selectedDenomination, setSelectedDenomination] = useState("500")
   const [customDenomination, setCustomDenomination] = useState("")
@@ -29,9 +31,9 @@ const [selectedDenomination, setSelectedDenomination] = useState("500")
       <h2 className="capitalize text-xs sm:text-base py-1">Gift Card Denominations</h2>
 
       <div className="flex flex-wrap justify-start gap-2.5 sm:gap-5 sm:py-5">
-        {denominations.map((item) => (
+        {denomination?.map((item,i) => (
           <button
-            key={item}
+            key={i}
             onClick={() => setSelectedDenomination(item)}
            
             className="sm:basis-1/4 transition-colors delay-100 sm:mx-2 py-2.5 sm:py-3 px-2 sm:px-4 text-xs sm:text-xl font-semibold"

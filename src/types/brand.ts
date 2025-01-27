@@ -3,6 +3,8 @@ export interface Brand {
     price_json: {
       max: number
       min: number
+    }
+    checkout:{
       denominations?: string[]
     }
     discount: string
