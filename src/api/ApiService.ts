@@ -2,7 +2,7 @@ import * as api from "../request";
 
 
 export const getAllBrands = async () => {
-    return await api.GetReq(`brands/all/`);
+   return await api.GetReq(`brands/all/`);
 };
 
 export const getAllCategory = async () => {
