@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Browse our selection of gift cards from various brands.",
 }
 
+export const dynamic = "force-static";
+
 export default async function BrandsPage() {
   const brandsData = await getAllBrands()
 
