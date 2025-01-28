@@ -8,6 +8,8 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
+export const dynamic = "force-static"
+
 // Removed `BrandDetailsProps` since it was redundant
 export async function generateStaticParams() {
   const brandsData = await getAllBrands();

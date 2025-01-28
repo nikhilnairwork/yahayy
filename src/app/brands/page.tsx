@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: "All Brands | Gift Cards",
   description: "Browse our selection of gift cards from various brands.",
 }
+// This forces Next.js to statically generate this page
+export const dynamic = "force-static"
 
 // This is the App Router equivalent of getStaticProps
 async function getBrandsData() {
@@ -17,7 +19,7 @@ async function getBrandsData() {
   }
 }
 
-export const revalidate = 3600 // revalidate every hour
+
 
 export default async function BrandsPage() {
   const { props } = await getBrandsData()
