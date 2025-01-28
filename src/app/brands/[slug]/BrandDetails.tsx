@@ -1,19 +1,31 @@
-import Image from "next/image"
+import Image from "next/image";
 
-import type { BrandDetails as BrandDetailsType } from "@/types/brand"
-import Denomination from "@/Component/Denomination"
+import type { BrandDetails as BrandDetailsType } from "@/types/brand";
+import Denomination from "@/Component/Denomination";
+import Link from "next/link";
 
 interface BrandDetailsProps {
-  brand: BrandDetailsType
+  brand: BrandDetailsType;
 }
 
 export default function BrandDetails({ brand }: BrandDetailsProps) {
-console.log(brand)
+  console.log(brand);
   return (
-    <div className="flex flex-col md:flex-row gap-8">
-      <div className="md:w-1/2">
-        <div className="relative h-48 p-10 w-48  rounded-lg overflow-hidden">
-          <Image className="w-48 lg:w-[20rem] text-xs  " src={brand.image || "/placeholder.svg"} alt={brand.name} layout="fill" objectFit="cover" />
+    <div className="flex flex-col md:flex-row justify-center gap-8">
+
+      <div className="md:w-1/3">
+      <Link href={"/brands"}>
+        <button className="mx-5 my-2 text-zinc-800 font-semibold text-xs md:text-base bg-zinc-100 rounded-md p-1 hover:underline hover:bg-purple-500 hover:text-white">
+          {"<Back"}
+        </button>
+      </Link>
+        <div className="relative w-[25rem] h-[25rem] rounded-lg overflow-hidden">
+          <Image
+            src={brand.image || "/placeholder.svg"}
+            alt={brand.name}
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
       </div>
       <div className="md:w-1/2">
@@ -56,14 +68,24 @@ console.log(brand)
         >
           Add to Cart
         </button> */}
-        <Denomination denomination={brand?.checkout?.denominations} title={brand.name}/>
+        <Denomination
+          denomination={brand?.checkout?.denominations}
+          title={brand.name}
+        />
         <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-2">Description</h2>
+          <h2 className=" text-gray-900 text-xl font-semibold mb-2">
+            Description
+          </h2>
           <p className="text-gray-700 mb-4">{brand.desc}</p>
-          <h2 className="text-xl font-semibold mb-2">Terms and Conditions</h2>
-          <p className="text-gray-700 mb-4"  dangerouslySetInnerHTML={{ __html: brand.t_c_content || "" }}></p>
+          <h2 className=" text-gray-900 text-xl font-semibold mb-2">
+            Terms and Conditions
+          </h2>
+          <p
+            className="text-gray-700 mb-4"
+            dangerouslySetInnerHTML={{ __html: brand.t_c_content || "" }}
+          ></p>
         </div>
       </div>
     </div>
-  )
+  );
 }
