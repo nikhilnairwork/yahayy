@@ -37,7 +37,7 @@ const [selectedDenomination, setSelectedDenomination] = useState("500")
             key={i}
             onClick={() => setSelectedDenomination(item)}
            
-            className="sm:basis-1/4 transition-colors delay-100 sm:mx-2 py-2.5 sm:py-3 px-2 sm:px-4 text-xs sm:text-xl font-semibold"
+            className="sm:basis-1/4 transition-colors border-2 border-purple-600  rounded-lg  delay-100 sm:mx-2 py-2.5 sm:py-3 px-2 sm:px-4 text-xs sm:text-xl font-semibold"
           >
             ₹{item}
           </button>
