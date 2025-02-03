@@ -71,7 +71,7 @@ export default async function BrandPage({ params }: Props) {
       </div>
       <div  className="gap-5 lg:sticky lg:flex lg:flex-col lg:top-[85px]">
 
-      <Denomination denomination={brandDetails.data.data.checkout.denominations} title={brandDetails.data.data.name}/>
+      <Denomination denomination={brandDetails.data.data.checkout.denominations} title={brandDetails.data.data.name} discount={brandDetails.data.data.discount}/>
       </div>
     </main>
   );

@@ -54,27 +54,27 @@ const Footer = () => {
               </h3>
               <ul className="py-2.5">
                 <li>
-                  <Link href="/popular-gift-card/amazon-pay-e-gift-card">
+                  <Link href="/amazon-pay-e-gift-card">
                     Amazon pay e-gift card
                   </Link>
                 </li>
                 <li>
-                  <Link href="/popular-gift-card/flipkart-e-gift-card">
+                  <Link href="/flipkart-e-gift-card">
                     Flipkart e-gift card
                   </Link>
                 </li>
                 <li>
-                  <Link href="/popular-gift-card/ajio-e-gift-card">
+                  <Link href="/ajio-e-gift-card">
                     AJIO E-Gift Card
                   </Link>
                 </li>
                 <li>
-                  <Link href="/popular-gift-card/bewakoof-brands-e-gift-card">
+                  <Link href="/bewakoof-brands-e-gift-card">
                     Bewakoof Brands E-Gift Card
                   </Link>
                 </li>
                 <li>
-                  <Link href="/popular-gift-card/lifestyle-e-gift-card-b2c">
+                  <Link href="/lifestyle-e-gift-card-b2c">
                     Lifestyle E-Gift Card-B2C
                   </Link>
                 </li>
