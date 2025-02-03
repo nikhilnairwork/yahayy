@@ -9,9 +9,8 @@ interface BrandDetailsProps {
 }
 
 export default function BrandDetails({ brand }: BrandDetailsProps) {
-  console.log(brand);
   return (
-    <div className="flex flex-col md:flex-row justify-center gap-8">
+    <div className="flex flex-col md:flex-row justify-center gap-8 relative -z-10">
       <div className="md:w-1/3">
         <Link href={"/brands"}>
           <button className="mx-5 my-2 text-zinc-800 font-semibold text-xs md:text-base bg-zinc-100 rounded-md p-1 hover:underline hover:bg-purple-500 hover:text-white">
@@ -45,6 +44,8 @@ export default function BrandDetails({ brand }: BrandDetailsProps) {
           <Denomination
             denomination={brand?.checkout?.denominations}
             title={brand.name}
+          
+            
           />
         </div>
       </section>

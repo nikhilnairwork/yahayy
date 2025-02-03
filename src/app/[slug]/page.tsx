@@ -12,15 +12,20 @@ export const dynamic = "force-static"
 
 // Removed `BrandDetailsProps` since it was redundant
 export async function generateStaticParams() {
-  const brandsData = await getAllBrands();
+  try {
+    const brandsData = await getAllBrands()
 
-  if (!brandsData || !brandsData.data) {
-    throw new Error("Failed to fetch brands data");
+    if (!brandsData || !brandsData.data) {
+      throw new Error("Failed to fetch brands data")
+    }
+
+    return brandsData.data.data.map((brand: BrandDetailsType) => ({
+      slug: brand.url,
+    }))
+  } catch (error) {
+    console.error("Error generating static params:", error)
+    return []
   }
-
-  return brandsData.data.data.map((brand: BrandDetailsType) => ({
-    slug: brand.url,
-  }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
