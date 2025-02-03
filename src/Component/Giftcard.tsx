@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 type Props = {
-    giftCard_img?: string;
+    giftCard_img: string;
     title: string;
     discount?: string;
     textColor?: string;
@@ -20,11 +20,15 @@ type Props = {
   
     return (
       <div className="min-w-[90px] mx-2 :mx-0 md:w-[110px] lg:min-w-[150px]">
-        <img
-          src={giftCard_img}
-          alt={title}
-          className="w-[100px] sm:w-full h-auto drop-shadow-lg"
-        />
+        {giftCard_img && (
+  <Image 
+    src={giftCard_img} 
+    alt={title} 
+    width={150} // Provide width
+    height={100} // Provide height
+    className="w-[100px] sm:w-full h-auto drop-shadow-lg"
+  />
+)}
         <div className="lg:px-2">
           <h3
             className={`text-[9.5px] md:text-[11px] lg:text-[12.5px] font-medium ${textColor} hidden md:block`}

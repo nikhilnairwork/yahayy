@@ -1,5 +1,5 @@
 import HomeCarousel from "@/Component/HomeCarousel"
-import PopularGiftCardSection from "@/Component/PopularGiftCardSection"
+import GiftCardSection from "@/Component/GiftCardSection"
 import { getHomeData } from "@/api/ApiService"
 
 type HomeData = {
@@ -42,8 +42,9 @@ export default async function Home() {
         <HomeCarousel />
       </div>
       <div className="px-[2.68%] lg:px-[13.68%]">
-        <PopularGiftCardSection popular={popular} />
+        <GiftCardSection data={popular} heading={"Top Offers on Popular Gift Cards."} />
       </div>
+      
     </>
   )
 }
