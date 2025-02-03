@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import type { BrandDetails as BrandDetailsType } from "@/types/brand";
-import Denomination from "@/Component/Denomination";
+
 import Link from "next/link";
 
 interface BrandDetailsProps {
@@ -10,8 +10,8 @@ interface BrandDetailsProps {
 
 export default function BrandDetails({ brand }: BrandDetailsProps) {
   return (
-    <div className="flex flex-col md:flex-row justify-center gap-8 relative -z-10">
-      <div className="md:w-1/3">
+    <div >
+      <div className="">
         <Link href={"/brands"}>
           <button className="mx-5 my-2 text-zinc-800 font-semibold text-xs md:text-base bg-zinc-100 rounded-md p-1 hover:underline hover:bg-purple-500 hover:text-white">
             {"<Back"}
@@ -25,7 +25,7 @@ export default function BrandDetails({ brand }: BrandDetailsProps) {
             objectFit="cover"
           />
         </div>
-        <div className="mt-8">
+        {/* <div className="mt-8">
           <h2 className=" text-gray-900 text-xl font-semibold mb-2">
             Description
           </h2>
@@ -37,16 +37,11 @@ export default function BrandDetails({ brand }: BrandDetailsProps) {
             className="text-gray-700 mb-4"
             dangerouslySetInnerHTML={{ __html: brand.t_c_content || "" }}
           ></p>
-        </div>
+        </div> */}
       </div>
       <section className="hidden lg:flex lg:w-[398px] lg:flex-col py-4">
         <div className="gap-5 lg:sticky lg:flex lg:flex-col lg:top-[85px]">
-          <Denomination
-            denomination={brand?.checkout?.denominations}
-            title={brand.name}
-          
-            
-          />
+        
         </div>
       </section>
     </div>

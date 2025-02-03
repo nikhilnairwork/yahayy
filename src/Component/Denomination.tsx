@@ -13,7 +13,7 @@ const [selectedDenomination, setSelectedDenomination] = useState("500")
   const [customDenomination, setCustomDenomination] = useState("")
   const [quantity, setQuantity] = useState("1")
 
-
+  const denominations = ["500", "1000", "2000", "5000"]
 
   const calculatePrice = () => {
     const basePrice = Number.parseInt(selectedDenomination) || Number.parseInt(customDenomination) || 0
@@ -22,7 +22,7 @@ const [selectedDenomination, setSelectedDenomination] = useState("500")
   }
 
   return (
-    <div className="border-2 bg-white w-[280px] text-zinc-700 relative -z-10 sm:w-[310px] md:w-[500px] rounded-[15px] p-4">
+    <div className="border-2 bg-white w-[280px] text-zinc-700 sm:w-[310px] md:w-[500px] rounded-[15px] p-4 ">
       <div>
         <h1 className="text-sm sm:text-2xl font-bold">
           {title} <br />
@@ -37,7 +37,7 @@ const [selectedDenomination, setSelectedDenomination] = useState("500")
             key={i}
             onClick={() => setSelectedDenomination(item)}
            
-            className="sm:basis-1/4 transition-colors border-2 border-purple-600  rounded-lg  delay-100 sm:mx-2 py-2.5 sm:py-3 px-2 sm:px-4 text-xs sm:text-xl font-semibold"
+            className="sm:basis-1/4 transition-colors delay-100 sm:mx-2 py-2.5 sm:py-3 px-2 sm:px-4 text-xs sm:text-xl font-semibold"
           >
             ₹{item}
           </button>

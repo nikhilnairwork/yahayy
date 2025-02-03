@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getAllBrands, getGiftCardDetail } from "@/api/ApiService";
 import BrandDetails from "./BrandDetails";
 import { BrandDetails as BrandDetailsType } from "@/types/brand";
+import Denomination from "@/Component/Denomination";
+import BrandContent from "./BrandContent"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -62,8 +64,15 @@ export default async function BrandPage({ params }: Props) {
   }
 
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className=" mx-auto px-4 py-8 flex items-start justify-center gap-10">
+      <div className="w-[30%]">
       <BrandDetails brand={brandDetails.data.data} />
+      <BrandContent desc={brandDetails.data.data.desc} terms={brandDetails.data.data.t_c_content}/>
+      </div>
+      <div  className="gap-5 lg:sticky lg:flex lg:flex-col lg:top-[85px]">
+
+      <Denomination denomination={brandDetails.data.data.checkout.denominations} title={brandDetails.data.data.name}/>
+      </div>
     </main>
   );
 }
