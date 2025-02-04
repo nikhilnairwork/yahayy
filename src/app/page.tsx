@@ -15,14 +15,14 @@ type HomeData = {
 export const dynamic = "force-static"
 
 // This function generates the static data at build time
-export async function generateStaticParams() {
-  const homeData = await getHomeData()
-  return {
-    props: {
-      homeData: homeData.data.data as HomeData,
-    },
-  }
-}
+// export async function generateStaticParams() {
+//   const homeData = await getHomeData()
+//   return {
+//     props: {
+//       homeData: homeData.data.data as HomeData,
+//     },
+//   }
+// }
 
 
 export default async function Home() {
