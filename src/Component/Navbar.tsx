@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import CategoryDropDown from "./NavComponent/CategoryDropDown";
+import Searchbar from "./NavComponent/Searchbar";
 
 type Props = {};
 
 export default function Navbar({}: Props) {
   return (
     
-    <div className="flex justify-evenly mb-3 sm:mb-0 py-2.5 sm:py-5 z-50 lg:justify-center backdrop-blur-lg items-center bg-gradient-to-r from-indigo-300/50 via-purple-200/20 to-purple-300/30 rounded-b-3xl  md:bg-gradient-to-r md:from-white/65 md:via-white/65 to-purple-300lg:gap-4 xl:gap-16 ">
+    <div className="flex justify-evenly mb-3 sm:mb-0 py-2.5 sm:py-5 sticky z-50 lg:justify-center backdrop-blur-lg items-center bg-gradient-to-r from-indigo-300/50 via-purple-200/20 to-purple-300/30 rounded-b-3xl  md:bg-gradient-to-r md:from-white/65 md:via-white/65 to-purple-300lg:gap-4 xl:gap-16 ">
       <div>
         <Link href={"/"}>
           <Image
@@ -55,6 +56,13 @@ export default function Navbar({}: Props) {
         </ul>
 
       </div>
+    
+          <Searchbar type="text"
+            DivclassName="outline-none relative flex items-center p-1 w-52 sm:w-fit lg:px-4 bg-white outline-none  rounded-full md:border-[#9941F2] border-2"
+            placeholder="Search for brands here"
+            className="w-[80%] sm:w-96 lg:w-48 text-xs md:text-base bg-none rounded-full outline-none border-none p-0.5"
+             />
+     
     </div>
   );
 }

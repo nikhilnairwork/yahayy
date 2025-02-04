@@ -19,7 +19,7 @@ export default function GiftCardSection({ data,heading,text_color }: Props) {
       </div>
 
       <div className=" overflow-x-auto scrollbar-hide z-1 my-1  relative">
-        <div className="flex justify-evenly items-start">
+        <div className="flex justify-start lg:justify-between items-start">
           {data?.slice(0, 6).map(
             (
               item: {
@@ -43,7 +43,7 @@ export default function GiftCardSection({ data,heading,text_color }: Props) {
             )
           )}
         </div>
-        <div className="flex justify-evenly  sm:mt-2 items-start">
+        <div className="flex justify-start lg:justify-between  sm:mt-2 items-start">
           {data?.slice(6, 12).map(
             (
               item: {

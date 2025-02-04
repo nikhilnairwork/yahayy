@@ -19,14 +19,14 @@ type Props = {
     };
   
     return (
-      <div className="min-w-[90px] mx-2 :mx-0 md:w-[110px] lg:min-w-[150px]">
+      <div className="min-w-[80px] mx-2 :mx-0 md:w-[110px] lg:min-w-[150px]">
         {giftCard_img && (
   <Image 
     src={giftCard_img} 
     alt={title} 
     width={150} // Provide width
     height={100} // Provide height
-    className="w-[100px] sm:w-full h-auto hover:scale-105"
+    className="w-[90px] sm:w-full h-auto hover:scale-105"
   />
 )}
         <div className="lg:px-2">
