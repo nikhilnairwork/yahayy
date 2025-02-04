@@ -26,16 +26,16 @@ type Props = {
     alt={title} 
     width={150} // Provide width
     height={100} // Provide height
-    className="w-[100px] sm:w-full h-auto drop-shadow-lg"
+    className="w-[100px] sm:w-full h-auto hover:scale-105"
   />
 )}
         <div className="lg:px-2">
           <h3
-            className={`text-[9.5px] md:text-[11px] lg:text-[12.5px] font-medium ${textColor} hidden md:block`}
+            className={`text-[9.5px] md:text-[11px] lg:text-[12px] font-medium ${textColor} hidden md:block`}
             title={title}
             aria-label={title}
           >
-            {truncateText(title, 18)}{" "}
+            {truncateText(title, 28)}{" "}
             {/* Adjust 20 to your preferred character limit */}
           </h3>
           <h3
@@ -51,7 +51,7 @@ type Props = {
               {discount}% <span className="font-bold">OFF</span>
             </p>
           ) : (
-            <p className="text-[#388d13] text-[9.5px] lg:text-[18px] lg:text-sm font-bold">
+            <p className="text-[#388d13] text-[9.5px] lg:text-[18px] font-bold">
               Buy Now
             </p>
           )}

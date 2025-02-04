@@ -41,11 +41,11 @@ const Footer = () => {
                 Popular categories
               </h3>
               <ul className="py-2.5">
-                <li className="cursor-pointer">New Year</li>
-                <li className="cursor-pointer">Groceries</li>
-                <li className="cursor-pointer">Entertainment</li>
-                <li className="cursor-pointer">Electronics</li>
-                <li className="cursor-pointer">Fashion</li>
+                <li className="cursor-pointer"> <Link href={'/categories/New%20year%20Gift%20Card/23'}>New Year</Link></li>
+                <li className="cursor-pointer"> <Link href={'/categories/Grocery%20Gift%20Card/4'}>Groceries</Link></li>
+                <li className="cursor-pointer"> <Link href={'/categories/Entertainment%20Gift%20Card/9'}>Entertainment</Link></li>
+                <li className="cursor-pointer"> <Link href={'/categories/Electronics%20Gift%20Card/11'}>Electronics</Link></li>
+                <li className="cursor-pointer"> <Link href={'/categories/Fashion%20&%20Lifestyle%20Gift%20Card/3'}>Fashion</Link></li>
               </ul>
             </div>
             <div>
