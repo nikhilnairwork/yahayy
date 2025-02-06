@@ -3,6 +3,8 @@ import Link from "next/link";
 import React from "react";
 import CategoryDropDown from "./NavComponent/CategoryDropDown";
 import Searchbar from "./NavComponent/Searchbar";
+import AuthModal from "./NavComponent/AuthModal";
+import Profile from "./NavComponent/Profile";
 
 type Props = {};
 
@@ -62,6 +64,8 @@ export default function Navbar({}: Props) {
             placeholder="Search for brands here"
             className="w-[80%] sm:w-96 lg:w-48 text-xs md:text-base bg-none rounded-full outline-none border-none p-0.5"
              />
+             
+             <Profile/>
      
     </div>
   );

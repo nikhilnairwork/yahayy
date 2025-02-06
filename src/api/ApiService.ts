@@ -53,5 +53,24 @@ export const ForBusiness = async (body:object)=>{
   return await api.PostReq(`contact/business-contact`,body)
 }
 export const getBalance = async (body:object) => {
-  return await api.PostReq(`/brands/check-balance`,body);
+  return await api.PostReq(`brands/check-balance`,body);
 };
+
+// AUTH 
+export const Register = async (body:object) => {
+  return await api.PostReq(`api/auth/signup/`,body);
+};
+
+export const VerifySignUpOTP = async (body:object) => {
+  return await api.PostReq(`api/auth/verify-otp/`,body);
+};
+
+export const Login = async (body:object) => {
+  return await api.PostReq(`api/auth/login/`,body);
+};
+
+export const VerifyLoginOTP = async (body:object) => {
+  return await api.PostReq(`api/auth/verify-login/`,body);
+};
+
+

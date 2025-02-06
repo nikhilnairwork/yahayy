@@ -100,7 +100,7 @@ export default function Searchbar({
       <div className="text-sm font-medium w-full p-2 flex items-center gap-2 hover:bg-gray-100 cursor-pointer">
         <Image src={item.image || "/placeholder.svg"} alt={item.name} width={40} height={40} className="rounded-full" />
         <span>{item.name}</span>
-        {item.discount > 0 && <span className="text-green-600">{item.discount}% off</span>}
+        {/* {item.discount > 0 && <span className="text-green-600">{item.discount}% off</span>} */}
       </div>
     </Link>
   );
