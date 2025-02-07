@@ -78,12 +78,12 @@ export default function Denomination({ denomination, brandID , url , title, disc
     }
 
     const options = {
-      key: "Ds22Lb4Bj9ckm6eZAUeRTHz0", // Enter the Key ID generated from the Dashboard
+      key: "rzp_test_3MLnVyBR8YYOmA", // Enter the Key ID generated from the Dashboard
       amount: data?.amount,
       currency: "INR",
       name: "Yahayy ",
       image: "../../public/logo.svg",
-      order_id: data?.order_id,
+      order_id: data?.payment_order_id,
       handler: async function (response:any) {
         router.push("/account");
       },
