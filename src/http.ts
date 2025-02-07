@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getToken } from "./session";
 
 
 
@@ -11,7 +12,11 @@ export const http=axios.create({
 http.interceptors.request.use(
     function  (config) {
      
-
+      const token = getToken();
+   
+      if (token) {
+        config.headers["Authorization"] = `Bearer ${token}`;
+      }
       return config;
     },
     function (error) {

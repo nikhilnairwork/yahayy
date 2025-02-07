@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import type { RootState } from "../../lib/store"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -12,22 +14,18 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "@/components/ui/input-otp";
-import {
   Register,
   VerifySignUpOTP,
   Login,
   VerifyLoginOTP,
 } from "@/api/ApiService";
 import { setSession } from "@/session";
-
+import { setUser } from "@/lib/features/userSlice";
 type Step = "phone" | "otp" | "signup";
 
 export default function AuthModal() {
+  const dispatch = useDispatch()
+  const user = useSelector((state: RootState) => state.user)
   const [isOpen, setIsOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState<Step>("phone");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -76,6 +74,15 @@ export default function AuthModal() {
         if (otpResponse.status === 200) {
           console.log("Login successful:",otpResponse?.data?.access);
           setSession(otpResponse?.data?.access)
+
+          const userdata = otpResponse?.data?.user
+
+          setFirstName(userdata?.first_name)
+          setLastName(userdata?.last_name)
+          setEmail(userdata?.email)
+          setPhoneNumber(userdata?.mobile_no)
+
+          dispatch(setUser({firstName:userdata?.first_name, lastName:userdata?.last_name, email:userdata?.email, phone: phoneNumber}))
           setIsOpen(false);
         } else {
           console.log(
@@ -91,6 +98,14 @@ export default function AuthModal() {
         if (signUpOtpResponse.status === 200) {
           console.log("Signup OTP verified :",signUpOtpResponse.data);
           setSession(signUpOtpResponse?.data?.access)
+          const userdata = signUpOtpResponse?.data?.user
+
+          setFirstName(userdata?.first_name)
+          setLastName(userdata?.last_name)
+          setEmail(userdata?.email)
+          setPhoneNumber(userdata?.mobile_no)
+
+          dispatch(setUser({firstName:userdata?.first_name, lastName:userdata?.last_name, email:userdata?.email, phone: phoneNumber}))
           setCurrentStep("signup");
         } else {
           console.error("Invalid OTP");

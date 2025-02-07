@@ -1,3 +1,5 @@
+
+
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllBrands, getGiftCardDetail } from "@/api/ApiService";
@@ -71,7 +73,7 @@ export default async function BrandPage({ params }: Props) {
       </div>
       <div  className="gap-5 lg:sticky lg:flex lg:flex-col lg:top-[85px]">
 
-      <Denomination denomination={brandDetails.data.data.checkout.denominations} title={brandDetails.data.data.name} discount={brandDetails.data.data.discount}/>
+      <Denomination brandID={brandDetails.data.data.brand_id} denomination={brandDetails.data.data.checkout.denominations} title={brandDetails.data.data.name} discount={brandDetails.data.data.discount} url={brandDetails.data.data.url}/>
       </div>
     </main>
   );

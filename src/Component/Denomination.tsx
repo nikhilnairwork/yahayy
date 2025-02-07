@@ -1,19 +1,24 @@
 "use client";
 
+import { CreateOrder } from "@/api/ApiService";
+import { getToken } from "@/session";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 type Props = {
   denomination?: string[] | undefined;
   title?: string;
+  url?:string
+  brandID?:string
   discount: string // Changed to string
 };
 
-export default function Denomination({ denomination, title, discount }: Props) {
+export default function Denomination({ denomination, brandID , url , title, discount }: Props) {
 
   const [selectedDenomination, setSelectedDenomination] = useState("500");
   const [customDenomination, setCustomDenomination] = useState("");
   const [quantity, setQuantity] = useState("1");
-
+  const router = useRouter();
 
   const calculatePrice = () => {
     const basePrice = Number.parseInt(selectedDenomination) || Number.parseInt(customDenomination) || 0
@@ -22,11 +27,82 @@ export default function Denomination({ denomination, title, discount }: Props) {
     return (discountedPrice * Number.parseInt(quantity)).toFixed(2)
   }
 
+  const handleCreateorder = async ()=>{
+
+    if(getToken()){
+      let body = {
+        denomination_amount: selectedDenomination,
+        quantity: quantity,
+        url: url,
+      };
+      try {
+        const response = await CreateOrder(body, brandID);
+        if (response?.status == 200) {
+          console.log(response?.data?.data);
+          displayRazorpay(response?.data?.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   useEffect(() => {
     if (denomination && denomination.length > 0) {
       setSelectedDenomination(denomination[0])
     }
   }, [denomination])
+
+  function loadScript(src: string) {
+    return new Promise((resolve) => {
+      if (document.querySelector(`script[src="${src}"]`)) {
+        resolve(true);
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  }
+
+  async function displayRazorpay(data:any) {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+    }
+
+    const options = {
+      key: "Ds22Lb4Bj9ckm6eZAUeRTHz0", // Enter the Key ID generated from the Dashboard
+      amount: data?.amount,
+      currency: "INR",
+      name: "Yahayy ",
+      image: "../../public/logo.svg",
+      order_id: data?.order_id,
+      handler: async function (response:any) {
+        router.push("/account");
+      },
+      prefill: {
+        name: data?.name,
+        email: data?.email,
+        contact: data?.mobile,
+      },
+
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    if (typeof window !== "undefined" && window.Razorpay) {
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    }
+  }
 
   return (
     <div className="border-2 bg-white w-[280px] text-zinc-700 sm:w-[310px] md:w-[500px] rounded-[15px] p-4  relative -z-50">
@@ -107,7 +183,7 @@ export default function Denomination({ denomination, title, discount }: Props) {
       </div>
 
       <div className="flex justify-center my-4">
-        <button className="bg-gradient-to-r from-[#43248A] to-[#9941F2] w-[90%] mx-auto py-1.5 sm:py-3 px-2 sm:px-4 rounded-full hover:bg-transparent hover:scale-110 transition-all delay-150 text-white border-purple-600 border text-base sm:text-lg font-semibold">
+        <button onClick={()=>handleCreateorder()} className="bg-gradient-to-r from-[#43248A] to-[#9941F2] w-[90%] mx-auto py-1.5 sm:py-3 px-2 sm:px-4 rounded-full hover:bg-transparent hover:scale-110 transition-all delay-150 text-white border-purple-600 border text-base sm:text-lg font-semibold">
           Buy Now
         </button>
       </div>
