@@ -18,7 +18,7 @@ export default function page() {
         const response = await getOrder();
         if(response.status == 200){
         console.log(response?.data?.results)
-          setUserData(response?.data?.results); // Assuming `response` is the data structure returned by `getOrder`
+          setUserData(response?.data?.results);
         }
         
       } catch (err) {
