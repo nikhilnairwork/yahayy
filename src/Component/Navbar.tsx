@@ -28,9 +28,9 @@ export default function Navbar({}: Props) {
             aria-hidden
             src="/mob-logo.webp"
             alt="logo"
-            className="block md:hidden w-10 "
-            width={16}
-            height={16}
+            className="block md:hidden w-6 "
+            width={10}
+            height={10}
           />
         </Link>
       </div>
@@ -60,7 +60,7 @@ export default function Navbar({}: Props) {
       </div>
     
           <Searchbar type="text"
-            DivclassName="outline-none relative flex items-center p-1 w-52 sm:w-fit lg:px-4 bg-white outline-none  rounded-full md:border-[#9941F2] border-2"
+            DivclassName="outline-none relative flex items-center p-1 w-48 sm:w-fit lg:px-4 bg-white outline-none  rounded-full md:border-[#9941F2] border-2"
             placeholder="Search for brands here"
             className="w-[80%] sm:w-96 lg:w-48 text-xs md:text-base bg-none rounded-full outline-none border-none p-0.5"
              />

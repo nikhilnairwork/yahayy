@@ -17,7 +17,7 @@ export default function BrandDetails({ brand }: BrandDetailsProps) {
             {"<Back"}
           </button>
         </Link>
-        <div className="relative w-[25rem] h-[25rem] rounded-lg overflow-hidden">
+        <div className="relative w-48 h-48 mx-auto lg:w-[25rem] lg:h-[25rem] rounded-lg overflow-hidden">
           <Image
             src={brand.image || "/placeholder.svg"}
             alt={brand.name}

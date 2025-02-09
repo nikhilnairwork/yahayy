@@ -166,7 +166,7 @@ export default function AuthModal() {
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Sending OTP..." : "Continue"}
             </Button>
-            <p className="text-sm text-center mt-2">
+            {/* <p className="text-sm text-center mt-2">
               Don't have an account?{" "}
               <span
                 className="text-blue-600 cursor-pointer"
@@ -174,7 +174,7 @@ export default function AuthModal() {
               >
                 Sign up
               </span>
-            </p>
+            </p> */}
           </form>
         );
       case "otp":
@@ -235,7 +235,7 @@ export default function AuthModal() {
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Signing Up..." : "Complete Sign Up"}
             </Button>
-            <p className="text-sm text-center mt-2">
+            {/* <p className="text-sm text-center mt-2">
               Already have an account?{" "}
               <span
                 className="text-blue-600 cursor-pointer"
@@ -243,7 +243,7 @@ export default function AuthModal() {
               >
                 Login
               </span>
-            </p>
+            </p> */}
           </form>
         );
     }
@@ -251,10 +251,10 @@ export default function AuthModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
+      <DialogTrigger asChild >
         <Button
           variant="outline"
-          className="bg-gradient-to-r from-[#43248A] to-[#9941F2] text-white rounded-full hover:bg-[#8119aa] hover:text-purple-200"
+          className="bg-gradient-to-r from-[#43248A] to-[#9941F2] text-white rounded-full hover:bg-[#8119aa] hover:text-purple-200 text-xs "
         >
           Login / Sign Up
         </Button>

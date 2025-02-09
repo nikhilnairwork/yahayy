@@ -31,7 +31,7 @@ export default function GiftCardSection({ data,heading,text_color }: Props) {
               index: any
             ) => (
               <Link href={`/${item.url}`} key={index}>
-                <div className=" w-40 md:w-36 my-2.5  md:m-2.5" >
+                <div className=" w-[6rem] md:w-36 my-2.5  md:m-2.5" >
                   <Giftcard
                     title={item.name}
                     discount={item.discount}
@@ -55,7 +55,7 @@ export default function GiftCardSection({ data,heading,text_color }: Props) {
               index: any
             ) => (
               <Link href={`/${item.url}`} key={index} >
-                <div className=" w-40 md:w-36 my-2.5  md:m-2.5" >
+                <div className=" w-[6rem] md:w-36 my-2.5  md:m-2.5" >
                   <Giftcard
                     title={item.name}
                     discount={item.discount}
@@ -68,7 +68,7 @@ export default function GiftCardSection({ data,heading,text_color }: Props) {
           )}
         </div>
       </div>
-      <div className="absolute top-0 right-0 h-full lg:hidden block w-16 sm:w-24 md:w-32 bg-gradient-to-l from-white/25 from-10% to-transparent pointer-events-none"></div>
+     
     </div>
   );
 }
