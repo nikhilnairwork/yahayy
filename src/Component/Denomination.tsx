@@ -94,7 +94,7 @@ export default function Denomination({ denomination, brandID , url , title, disc
       },
 
       theme: {
-        color: "#3399cc",
+        color: "#8a00c2",
       },
     };
 
