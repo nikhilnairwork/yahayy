@@ -12,14 +12,23 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import Link from "next/link";
+import { clearSession } from "@/session";
 export default function Profile() {
+
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
   const user = useSelector((state: RootState)=>state.user.firstName)
 
+
+const handleLogout =()=> {
+  dispatch(clearUser())
+  clearSession()
+  
+}
+
   return (
     <div>
-      {isLoggedIn ? (
+    {isLoggedIn ? (
         <Popover>
           <PopoverTrigger>
             {" "}
@@ -36,7 +45,7 @@ export default function Profile() {
               <hr />
               <li
                 className="hover:bg-purple-600/30  p-1.5 rounded-md cursor-pointer"
-                onClick={() => dispatch(clearUser())}
+                onClick={() => handleLogout()}
               >
                 Logout
               </li>

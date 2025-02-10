@@ -24,6 +24,7 @@ import { setUser } from "@/lib/features/userSlice";
 type Step = "phone" | "otp" | "signup";
 
 export default function AuthModal() {
+
   const dispatch = useDispatch()
   const user = useSelector((state: RootState) => state.user)
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +36,9 @@ export default function AuthModal() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+
   console.log(otp);
+
   const handlePhoneSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -164,15 +167,6 @@ export default function AuthModal() {
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Sending OTP..." : "Continue"}
             </Button>
-            {/* <p className="text-sm text-center mt-2">
-              Don't have an account?{" "}
-              <span
-                className="text-blue-600 cursor-pointer"
-                onClick={() => setCurrentStep("signup")}
-              >
-                Sign up
-              </span>
-            </p> */}
           </form>
         );
       case "otp":
