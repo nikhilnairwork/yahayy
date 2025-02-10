@@ -15,6 +15,7 @@ import Link from "next/link";
 export default function Profile() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
+  const user = useSelector((state: RootState)=>state.user.firstName)
 
   return (
     <div>
@@ -22,7 +23,7 @@ export default function Profile() {
         <Popover>
           <PopoverTrigger>
             {" "}
-            <CircleUser size={34} color="#6600ff" strokeWidth={1.75} />
+          <div className="flex items-center justify-center gap-2"> <CircleUser size={30} color="#6600ff" strokeWidth={1.75} /> Hi' {user}</div> 
           </PopoverTrigger>
           <PopoverContent className="w-32 text-left">
             <ul>

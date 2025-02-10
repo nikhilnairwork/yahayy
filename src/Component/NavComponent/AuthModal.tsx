@@ -74,9 +74,7 @@ export default function AuthModal() {
         if (otpResponse.status === 200) {
           console.log("Login successful:",otpResponse?.data?.access);
           setSession(otpResponse?.data?.access)
-
           const userdata = otpResponse?.data?.user
-
           setFirstName(userdata?.first_name)
           setLastName(userdata?.last_name)
           setEmail(userdata?.email)

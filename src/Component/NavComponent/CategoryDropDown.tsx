@@ -12,13 +12,13 @@ export default function CategoryDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="text-[13px] xl:text-base flex items-center font-medium outline-none">
+        <button className="text-[16px] xl:text-base flex items-center font-medium outline-none">
           Categories <ChevronDown className="ml-2 h-4 w-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="lg:w-[700px]">
+      <DropdownMenuContent className="lg:w-[700px] overflow-y-auto h-[31rem] lg:h-full">
         
-          <div className="flex  gap-1 p-3">
+          <div className="flex flex-col lg:flex-row gap-1 p-3">
             <div className="w-full">
               <h4 className="text-base font-semibold px-2 mb-2">By Category</h4>
               {categories.slice(0, 19).map((category) => (

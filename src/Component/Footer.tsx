@@ -5,7 +5,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <>
-      <div className="flex justify-evenly border-t pt-5 flex-wrap gap-20 items-start text-gray-800 ">
+      <div className="flex justify-evenly border-t pt-5 px-5 sm:px-0 flex-wrap gap-20 items-start text-gray-800 ">
         <div>
           {/* Uncomment and replace the path for logos if required */}
           <Image
@@ -34,7 +34,7 @@ const Footer = () => {
             Get In Touch
           </button>
         </div>
-        <div>
+        <div className="">
           <div className="flex gap-x-24 flex-wrap">
             <div>
               <h3 className="uppercase font-bold text-gray-600">
@@ -89,7 +89,7 @@ const Footer = () => {
                   <Link href="/privacy-policy">Privacy policy</Link>
                 </li>
                 <li>
-                  <Link href="/terms-condition">Terms & conditions</Link>
+                  <Link href="/terms-and-condition">Terms & conditions</Link>
                 </li>
               </ul>
             </div>
