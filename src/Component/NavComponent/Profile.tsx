@@ -23,7 +23,7 @@ export default function Profile() {
         <Popover>
           <PopoverTrigger>
             {" "}
-          <div className="flex items-center justify-center gap-2"> <CircleUser size={30} color="#6600ff" strokeWidth={1.75} /> Hi' {user}</div> 
+          <div className="flex items-center justify-center gap-2 bg-purple-100 rounded-full p-1.5 px-2"> <CircleUser size={24} color="#6600ff" strokeWidth={1.75} /> Hi' {user}</div> 
           </PopoverTrigger>
           <PopoverContent className="w-32 text-left">
             <ul>

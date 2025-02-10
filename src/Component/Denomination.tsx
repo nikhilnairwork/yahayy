@@ -4,7 +4,8 @@ import { CreateOrder } from "@/api/ApiService";
 import { getToken } from "@/session";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
+import { useDispatch} from "react-redux";
+import { setOrderID } from "@/lib/features/orderSlice";
 type Props = {
   denomination?: string[] | undefined;
   title?: string;
@@ -14,7 +15,7 @@ type Props = {
 };
 
 export default function Denomination({ denomination, brandID , url , title, discount }: Props) {
-
+  const dispatch = useDispatch()
   const [selectedDenomination, setSelectedDenomination] = useState("500");
   const [customDenomination, setCustomDenomination] = useState("");
   const [quantity, setQuantity] = useState("1");
@@ -38,7 +39,7 @@ export default function Denomination({ denomination, brandID , url , title, disc
       try {
         const response = await CreateOrder(body, brandID);
         if (response?.status == 200) {
-          console.log(response?.data?.data);
+          dispatch(setOrderID(response?.data?.data?.order_id))
           displayRazorpay(response?.data?.data);
         }
       } catch (error) {

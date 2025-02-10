@@ -51,7 +51,7 @@ export default function Navbar({}: Props) {
             <CategoryDropDown />
           </li>
           <li>
-            <Link href={"/brands"} className="text-zinc-800">
+            <Link href={"/for-business"} className="text-zinc-800">
               For business
             </Link>
           </li>
@@ -88,7 +88,7 @@ export default function Navbar({}: Props) {
               </li>
               <hr />
               <li className="p-1.5">
-                <Link href={"/brands"} className="text-zinc-800">
+                <Link href={"/for-business"} className="text-zinc-800">
                   For business
                 </Link>
               </li>
