@@ -8,7 +8,7 @@ type Props = {
 
 const BrandContent = ({desc,terms}:Props) => {
   return (
-    <div className="mt-8">
+    <div className="mt-8 px-3 sm:px-1 ">
           <h2 className=" text-gray-900 text-xl font-semibold mb-2">
             Description
           </h2>

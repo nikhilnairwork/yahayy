@@ -56,7 +56,7 @@ export default function Navbar({}: Props) {
             </Link>
           </li>
           <li>
-            <Link href={"/brands"} className="text-zinc-800">
+            <Link href={"/gift-card-balance"} className="text-zinc-800">
               Giftcard balance
             </Link>
           </li>
@@ -69,11 +69,11 @@ export default function Navbar({}: Props) {
         placeholder="Search for brands here"
         className="w-[80%] sm:w-96 lg:w-48 text-xs md:text-base bg-none rounded-full outline-none border-none p-0.5"
       />
-      <div className="nav lg:hidden block">
+      <div className="mt-2 lg:hidden block">
         <Popover>
           <PopoverTrigger>
             {" "}
-            <Menu size={34} color="#6600ff" strokeWidth={1.75} />
+            <Menu size={24} color="#6600ff" strokeWidth={1.75} />
           </PopoverTrigger>
           <PopoverContent className="w-44 text-left">
             <ul>
@@ -94,7 +94,7 @@ export default function Navbar({}: Props) {
               </li>
               <hr />
               <li className="p-1.5">
-                <Link href={"/brands"} className="text-zinc-800">
+                <Link href={"/gift-card-balance"} className="text-zinc-800">
                   Giftcard balance
                 </Link>
               </li>
