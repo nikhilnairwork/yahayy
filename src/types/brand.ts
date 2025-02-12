@@ -1,9 +1,7 @@
 export interface Brand {
     image: string
-    price_json: {
-      max: number
-      min: number
-    }
+    min?: number;
+    max?: number;
     checkout:{
       denominations?: string[]
     }

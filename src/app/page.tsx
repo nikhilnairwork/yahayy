@@ -3,6 +3,7 @@ import GiftCardSection from "@/Component/GiftCardSection"
 import { getHomeData } from "@/api/ApiService"
 import HomeOffer from "@/Component/HomeOffer"
 import Link from "next/link"
+import Head from "next/head"
 
 type HomeData = {
   all_brands: Array<{}>
@@ -14,15 +15,7 @@ type HomeData = {
 // Force static rendering
 export const dynamic = "force-static"
 
-// This function generates the static data at build time
-// export async function generateStaticParams() {
-//   const homeData = await getHomeData()
-//   return {
-//     props: {
-//       homeData: homeData.data.data as HomeData,
-//     },
-//   }
-// }
+
 
 
 export default async function Home() {
@@ -33,6 +26,30 @@ export default async function Home() {
 
   return (
     <>
+        <Head>
+     
+        <title>Yahayy</title>
+        <meta name="keywords" content="online gifts, gifts for family, gifts for friends, gifts for colleagues, birthday gifts, special occasion gifts"/>
+        <meta name="description" content="Find the perfect online gifts for your loved ones, family, friends, colleagues, and more. Shop unique presents for all occasions."/>
+        <meta name="author" content="yahayy.com" />
+        
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Yahayy" />
+        <meta property="og:description" content="Find the perfect online gifts for your loved ones, family, friends, colleagues, and more. Shop unique presents for all occasions." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.yahayy.com/" />
+        <meta property="og:image" content="https://www.yahayy.com/assets/mob-logo-CoEb6Vu6.webp" />
+        
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Gift Cards & Discounts | Home" />
+        <meta name="twitter:description" content="Find the best offers on gift cards and save on your purchases." />
+        <meta name="twitter:image" content="https://www.yahayy.com/assets/mob-logo-CoEb6Vu6.webp" />
+
+        {/* Canonical Tag */}
+        <link rel="canonical" href="https://www.yahayy.com/" />
+      </Head>
+
       <div className="px-[2.68%] lg:px-[13.68%]">
         <HomeCarousel />
       </div>

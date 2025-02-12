@@ -2,6 +2,7 @@
 
 import { CreateOrder } from "@/api/ApiService";
 import { getToken } from "@/session";
+import { toast } from "sonner"
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch} from "react-redux";
@@ -11,10 +12,13 @@ type Props = {
   title?: string;
   url?:string
   brandID?:string
-  discount: string // Changed to string
+  discount: string// Changed to string
+  min?: number;
+  max?: number;
 };
 
 export default function Denomination({ denomination, brandID , url , title, discount }: Props) {
+  
   const dispatch = useDispatch()
   const [selectedDenomination, setSelectedDenomination] = useState("500");
   const [customDenomination, setCustomDenomination] = useState("");
@@ -29,7 +33,6 @@ export default function Denomination({ denomination, brandID , url , title, disc
   }
 
   const handleCreateorder = async ()=>{
-
     if(getToken()){
       let body = {
         denomination_amount: selectedDenomination,
@@ -44,8 +47,13 @@ export default function Denomination({ denomination, brandID , url , title, disc
         }
       } catch (error) {
         console.log(error);
+        toast.error("An error occurred while creating the order")
       }
+    }else{
+      toast.error("Please login before purchase")
+
     }
+
   }
 
   useEffect(() => {
@@ -86,7 +94,7 @@ export default function Denomination({ denomination, brandID , url , title, disc
       image: "../../public/logo.svg",
       order_id: data?.payment_order_id,
       handler: async function (response:any) {
-        router.push("/account");
+        router.push("/orderdetails");
       },
       prefill: {
         name: data?.name,
@@ -104,7 +112,10 @@ export default function Denomination({ denomination, brandID , url , title, disc
       paymentObject.open();
     }
   }
+  const numericDenominations = denomination?.map(Number); // Convert to numbers
 
+  const firstDenomination = Math.min(...numericDenominations || []);
+  const lastDenomination = Math.max(...numericDenominations || []);
   return (
     <div className="border-2 bg-white w-[280px] text-zinc-700 sm:w-[310px] md:w-[500px] rounded-[15px] p-4 mx-auto mt-10  relative z-10">
       <div>
@@ -152,9 +163,17 @@ export default function Denomination({ denomination, brandID , url , title, disc
           />
         </div>
       </div>
-
+      {(Number(customDenomination) < firstDenomination ||
+          Number(customDenomination) > lastDenomination) &&
+          customDenomination !== "" && (
+            <div className="text-red-500 text-sm mt-2 text-center font-bold">
+              Choose denomination between ₹{firstDenomination} and ₹
+              {lastDenomination}
+            </div>
+          )}
       <div className="flex sm:mx-2 justify-between items-center">
         <div className="flex items-center gap-2">
+
           <h3 className="text-sm">Qty</h3>
           <select
             value={quantity}

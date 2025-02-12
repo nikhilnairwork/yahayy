@@ -33,9 +33,9 @@ export default function Navbar({}: Props) {
             aria-hidden
             src="/mob-logo.webp"
             alt="logo"
-            className="block md:hidden w-6 "
-            width={10}
-            height={10}
+            className="block md:hidden w-8 "
+            width={12}
+            height={12}
           />
         </Link>
       </div>

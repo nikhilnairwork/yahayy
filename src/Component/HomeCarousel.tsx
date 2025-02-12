@@ -15,16 +15,16 @@ export default function HomeCarousel() {
     <Carousel className=" mx-auto mt-5 md:mt-12 lg:mt-1 drop-shadow-md w-[90%]">
       <CarouselContent>
         <CarouselItem>
-          <Image src={bigBasket} alt="bigBasket" className="rounded-lg" />
+          <Image src={bigBasket} alt="bigBasket" width={1200} height={200}  className="rounded-lg w-full" />
         </CarouselItem>
         <CarouselItem>
-          <Image src={Dominos} alt="Dominos"  className="rounded-lg"/>
+          <Image src={Dominos} alt="Dominos"  width={1200} height={200}  className="rounded-lg w-full"/>
         </CarouselItem>
         <CarouselItem>
-          <Image src={Myntra} alt="Myntra"  className="rounded-lg"/>
+          <Image src={Myntra} alt="Myntra"   width={1200} height={200} className="rounded-lg w-full"/>
         </CarouselItem>
         <CarouselItem>
-          <Image src={MamaEarth} alt="Mamaearth"  className="rounded-lg"/>
+          <Image src={MamaEarth} alt="Mamaearth"   width={1200} height={200} className="rounded-lg w-full"/>
         </CarouselItem>
       </CarouselContent>
     </Carousel>

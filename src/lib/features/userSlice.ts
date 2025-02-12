@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-interface UserState {
+export interface UserState {
   firstName: string;
   lastName: string;
   email: string;
@@ -35,6 +35,12 @@ export const userSlice = createSlice({
       state.phone = action.payload.phone;
       state.isLoggedIn = true;
     },
+    updateUser: (
+      state,
+      action: PayloadAction<Partial<UserState>> // Allow partial updates
+    ) => {
+      Object.assign(state, action.payload); // Merge new values into state
+    },
     clearUser: (state) => {
       state.firstName = "";
       state.lastName = "";
@@ -45,6 +51,6 @@ export const userSlice = createSlice({
   },
 });
 
-export const { setUser, clearUser } = userSlice.actions;
+export const { setUser, updateUser, clearUser } = userSlice.actions;
 
 export default userSlice.reducer;

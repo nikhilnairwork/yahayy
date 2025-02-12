@@ -1,3 +1,4 @@
+"use client"
 import {
     Table,
     TableBody,
@@ -7,7 +8,10 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table";
+import { setOrderID } from "@/lib/features/orderSlice";
   import Link from "next/link";
+import { useDispatch } from "react-redux";
+  
   interface Order {
     brand_name: string;
     brand_image: string;
@@ -30,6 +34,7 @@ import {
   }
   
   function OrderCard({ orders }: OrderCardProps) {
+    const dispatch = useDispatch()
    
     return (
       <div className="bg-[#FAFCFE] rounded-lg shadow-md my-3 overflow-x-auto sm:overflow-hidden w-72 min-h-[20vh] sm:w-full border p-3">
@@ -72,8 +77,9 @@ import {
                 <TableCell>{order.total_amount}</TableCell>
                 <TableCell>
                   <Link
-                    href={`/orderdetails/${order.order_ref}`}
+                    href={`/orderdetails`}
                     className="text-blue-600 hover:underline"
+                  onClick={()=>dispatch(setOrderID(order.order_ref))}
                   >
                     View
                   </Link>

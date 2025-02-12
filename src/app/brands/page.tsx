@@ -24,8 +24,8 @@ export default async function BrandsPage() {
   const { props } = await getBrandsData()
 
   return (
-    <main className="container mx-auto px-12 py-8">
-      <h1 className="text-3xl font-bold mb-6">All Brands</h1>
+    <main className="container mx-auto px-8 lg:px-12 py-8">
+      <h1 className="text-3xl font-bold mb-1 text-center">All Brands</h1>
       <BrandList initialBrands={props.brands} />
     </main>
   )

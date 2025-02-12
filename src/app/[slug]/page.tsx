@@ -58,34 +58,56 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BrandPage({ params }: Props) {
-  const { slug } = await params
-  const brandDetails = await getGiftCardDetail(slug)
+  try {
+    const { slug } = await params;
+    const brandDetails = await getGiftCardDetail(slug);
 
-  if (!brandDetails) {
-    notFound();
+    if (!brandDetails || !brandDetails.data?.data) {
+      notFound(); // Correct way to trigger 404
+    }
+
+    return (
+      <main>
+        <div className="mx-auto py-8 hidden lg:flex items-start justify-center gap-10">
+          <div className="w-[30%]">
+            <BrandDetails brand={brandDetails.data.data} />
+            <BrandContent
+              desc={brandDetails.data.data.desc}
+              terms={brandDetails.data.data.t_c_content}
+            />
+          </div>
+          <div className="gap-5 lg:sticky lg:flex lg:flex-col lg:top-[85px]">
+            <Denomination
+              brandID={brandDetails.data.data.brand_id}
+              denomination={brandDetails.data.data.checkout.denominations}
+              title={brandDetails.data.data.name}
+              discount={brandDetails.data.data.discount}
+              url={brandDetails.data.data.url}
+            />
+          </div>
+        </div>
+        <div className="mx-auto py-8 lg:hidden flex flex-col items-start justify-center gap-10">
+          <div className="w-full bg-zinc-100">
+            <BrandDetails brand={brandDetails.data.data} />
+            <Denomination
+              brandID={brandDetails.data.data.brand_id}
+              denomination={brandDetails.data.data.checkout.denominations}
+              title={brandDetails.data.data.name}
+              discount={brandDetails.data.data.discount}
+              url={brandDetails.data.data.url}
+            />
+          </div>
+          <div className="gap-5 lg:sticky lg:flex lg:flex-col lg:top-[85px]">
+            <BrandContent
+              desc={brandDetails.data.data.desc}
+              terms={brandDetails.data.data.t_c_content}
+            />
+          </div>
+        </div>
+      </main>
+    );
+  } catch (error) {
+    console.error("Error fetching brand details:", error);
+    notFound(); // Show 404 page on error
   }
-
-  return (
-    <main className=" ">
-     <div className="mx-auto  py-8 hidden lg:flex items-start justify-center gap-10">
-     <div className="w-[30%] ">
-      <BrandDetails brand={brandDetails.data.data} />
-      <BrandContent desc={brandDetails.data.data.desc} terms={brandDetails.data.data.t_c_content}/>
-      </div>
-      <div  className="gap-5 lg:sticky lg:flex lg:flex-col lg:top-[85px]">
-      <Denomination brandID={brandDetails.data.data.brand_id} denomination={brandDetails.data.data.checkout.denominations} title={brandDetails.data.data.name} discount={brandDetails.data.data.discount} url={brandDetails.data.data.url}/>
-      </div>
-     </div>
-     <div className="mx-auto  py-8 lg:hidden flex flex-col items-start justify-center gap-10">
-     <div className="w-full bg-zinc-100">
-      <BrandDetails brand={brandDetails.data.data} />
-      <Denomination brandID={brandDetails.data.data.brand_id} denomination={brandDetails.data.data.checkout.denominations} title={brandDetails.data.data.name} discount={brandDetails.data.data.discount} url={brandDetails.data.data.url}/>
-      </div>
-      <div  className="gap-5 lg:sticky lg:flex lg:flex-col lg:top-[85px]">
-      <BrandContent desc={brandDetails.data.data.desc} terms={brandDetails.data.data.t_c_content}/>
-      </div>
-     </div>
-   
-    </main>
-  );
 }

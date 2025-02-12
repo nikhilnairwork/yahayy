@@ -31,7 +31,7 @@ export const getOrder = async () => {
     return await api.GetReq(`brands/my-orders`);
   };
 
-export const getOrderDetails = async (id:string |undefined) => {
+export const getOrderDetails = async (id:string |null) => {
     return await api.GetReq(`brands/order/${id}/details`);
   };
 
@@ -71,6 +71,10 @@ export const Login = async (body:object) => {
 
 export const VerifyLoginOTP = async (body:object) => {
   return await api.PostReq(`api/auth/verify-login/`,body);
+};
+
+export const EditProfile = async (body:object) => {
+  return await api.PostReq(`api/auth/my-profile/`,body);
 };
 
 
