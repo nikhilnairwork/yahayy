@@ -14,18 +14,18 @@ export default function BrandList({ initialBrands }: BrandListProps) {
     return text;
   };
   return (
-    <div className="flex flex-col sm:flex-row   py-5  flex-wrap justify-center lg:gap-x-32  lg:gap-y-16 rounded-lg">
+    <div className="flex flex-col sm:flex-row   py-5 md:py-1  flex-wrap justify-center lg:gap-x-16  lg:gap-y-0 rounded-lg">
       {initialBrands.map((brand, i) => (
         <Link href={`/${brand.url}`} key={i} className="block">
           <div className="flex justify-start items-center  md:flex-col w-full py-5   rounded-lg md:w-[110px]  lg:min-w-[150px]  md:bg-gradient-to-t md:from-white md:to-white">
             <img
               src={brand?.image}
               alt={brand?.name}
-              className=" w-28 h-28  sm:w-full sm:h-auto "
+              className=" w-28 h-28  sm:w-72 sm:h-auto "
             />
-            <div className="lg:px-3  md:pt-2 ">
+            <div className="lg:px-1.5 md:pt-1 ">
               <h3
-                className={` md:text-[11px] lg:text-[11.5px] font-medium  hidden md:block`}
+                className={` md:text-[11px] lg:text-[13.5px] font-medium  hidden md:block`}
                 title={brand.name}
                 aria-label={brand.name}
               >
@@ -47,11 +47,11 @@ export default function BrandList({ initialBrands }: BrandListProps) {
                 </p>
               )}
               {brand.discount != "0.00" ? (
-                <p className="text-[#388d13] text-[18.5px] sm:text-[13px]  pt-1.5 sm:pt-1 pl-3 sm:pl-0  py-2 lg:text-[12.5px] lg:text-sm font-bold">
+                <p className="text-[#388d13] text-[18.5px] sm:text-[13px]  pt-1.5 sm:pt-1 pl-3 sm:pl-0  py-2 lg:text-[16.5px]  font-bold">
                   {brand.discount}% <span className="font-bold">OFF</span>
                 </p>
               ) : (
-                <p className="text-[#388d13] text-[18.5px] sm:text-[13px] pt-1.5 sm:pt-1  pl-3 sm:pl-0 py-2 lg:text-[12.5px] lg:text-sm font-bold">
+                <p className="text-[#388d13] text-[18.5px] sm:text-[13px] pt-1.5 sm:pt-1  pl-3 sm:pl-0 py-2 lg:text-[16.5px]  font-bold">
                   Buy Now
                 </p>
               )}
