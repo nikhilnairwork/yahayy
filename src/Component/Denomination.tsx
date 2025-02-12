@@ -94,7 +94,7 @@ export default function Denomination({ denomination, brandID , url , title, disc
       image: "../../public/logo.svg",
       order_id: data?.payment_order_id,
       handler: async function (response:any) {
-        router.push("/orderdetails");
+        router.push("/confirmation");
       },
       prefill: {
         name: data?.name,
